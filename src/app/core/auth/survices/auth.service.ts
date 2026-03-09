@@ -29,4 +29,10 @@ export class AuthService {
     localStorage.removeItem('socialUser');
     this.router.navigate(['/login']);
   }
+
+
+  changePassword(data:object): Observable<any>{
+    return this.httpClient.patch(environment.baseUrl + '/users/change-password' , data );
+  }
+
 }
