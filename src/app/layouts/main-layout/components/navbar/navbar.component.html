@@ -1,65 +1,62 @@
- <header class="sticky top-0 z-40 border-b border-slate-200/90 bg-white/95 backdrop-blur">
-        <div class="mx-auto flex max-w-7xl items-center justify-between gap-2 px-2 py-1.5 sm:gap-3 sm:px-3">
-            <div class="flex items-center gap-3"><img alt="Route Posts" class="h-9 w-9 rounded-xl object-cover"
-                    src="images\route.png">
-                <p class="hidden text-xl font-extrabold text-slate-900 sm:block">Route Posts</p>
-            </div>
-            <nav
-                class="flex min-w-0 items-center gap-1 overflow-x-auto rounded-2xl border border-slate-200 text-slate-600 bg-slate-50/90 px-1 py-1 sm:px-1.5">
-                <a class="relative flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-sm font-extrabold transition sm:gap-2 sm:px-3.5  hover:bg-white/90 hover:text-slate-900 "
-                    routerLink="/feed"  routerLinkActive="activeNavbar"  data-discover="true" aria-current="page">
-                    <span class="relative">
+<header class="sticky top-0 z-40 border-b border-slate-200/90 bg-white/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-2 px-2 py-1.5 sm:gap-3 sm:px-3">
+        <div class="flex items-center gap-3"><img alt="Route Posts" class="h-9 w-9 rounded-xl object-cover"
+                src="images\route.png">
+            <p class="hidden text-xl font-extrabold text-slate-900 sm:block">Route Posts</p>
+        </div>
+        <nav
+            class="flex min-w-0 items-center gap-1 overflow-x-auto rounded-2xl border border-slate-200 text-slate-600 bg-slate-50/90 px-1 py-1 sm:px-1.5">
+            <a class="relative flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-sm font-extrabold transition sm:gap-2 sm:px-3.5  hover:bg-white/90 hover:text-slate-900 "
+                routerLink="/feed" routerLinkActive="activeNavbar" data-discover="true" aria-current="page">
+                <span class="relative">
                     <i class="fa-regular fa-house text-[1rem]"></i>
-                    </span>
-                    <span class="hidden sm:inline">Feed</span>
-                    <span class="sr-only sm:hidden">Feed</span>
-                </a>
-                <a class="relative flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-sm font-extrabold transition sm:gap-2 sm:px-3.5 hover:bg-white/90 hover:text-slate-900"
-                   routerLink="/profile"  routerLinkActive="activeNavbar"  data-discover="true">
-                    <span class="relative">
+                </span>
+                <span class="hidden sm:inline">Feed</span>
+                <span class="sr-only sm:hidden">Feed</span>
+            </a>
+            <a class="relative flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-sm font-extrabold transition sm:gap-2 sm:px-3.5 hover:bg-white/90 hover:text-slate-900"
+                routerLink="/profile" routerLinkActive="activeNavbar" data-discover="true">
+                <span class="relative">
                     <i class="fa-regular fa-user text-[1rem]"></i>
-                    </span>
-                    <span class="hidden sm:inline">Profile</span>
-                    <span class="sr-only sm:hidden">Profile</span>
-                </a>
-                <a class="relative flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-sm font-extrabold transition sm:gap-2 sm:px-3.5 hover:bg-white/90 hover:text-slate-900"
-                   routerLink="/notifications"  routerLinkActive="activeNavbar" data-discover="true">
-                    <span class="relative">
+                </span>
+                <span class="hidden sm:inline">Profile</span>
+                <span class="sr-only sm:hidden">Profile</span>
+            </a>
+            <a class="relative flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-sm font-extrabold transition sm:gap-2 sm:px-3.5 hover:bg-white/90 hover:text-slate-900"
+                routerLink="/notifications" routerLinkActive="activeNavbar" data-discover="true">
+                <span class="relative">
                     <i class="fa-regular fa-comment text-[1rem]"></i>
-                    <span  class="absolute -right-2 -top-2 inline-flex min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-2xs font-black leading-4 text-white"> 5 </span>
-                    </span>
-                    <span class="hidden sm:inline">Notifications</span>
-                    <span class="sr-only sm:hidden">Notifications</span>
-                </a>
-            </nav>
-            <div class="relative">
-                <button
-                (click)="showDropMenu()"
-                    class="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-1.5 transition hover:bg-slate-100 cursor-pointer">
-                    <img alt="Tatiana Horne" class="h-8 w-8 rounded-full object-cover"
-                        src="images\default-profile.png">
-                        <span class="hidden max-w-35 truncate text-sm font-semibold text-slate-600 md:block">
-                        Tatiana Hogo</span>
-                        <i class="fa-solid fa-bars text-slate-600"></i>       
-                </button>
+                    <span
+                        class="absolute -right-2 -top-2 inline-flex min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-2xs font-black leading-4 text-white">
+                        5 </span>
+                </span>
+                <span class="hidden sm:inline">Notifications</span>
+                <span class="sr-only sm:hidden">Notifications</span>
+            </a>
+        </nav>
+        <div class="relative">
+            <button (click)="showDropMenu()"
+                class="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-1.5 transition hover:bg-slate-100 cursor-pointer">
+                <img alt="AmiraTamer" class="h-8 w-8 rounded-full object-cover" src="images\default-profile.png">
+                <span class="hidden max-w-35 truncate text-sm font-semibold text-slate-600 md:block">
+                    Amira Tamer</span>
+                <i class="fa-solid fa-bars text-slate-600"></i>
+            </button>
 
-                @if (isDropMenuOpen) {
-                    <div 
-                class="absolute right-0 z-50 mt-2 w-52 rounded-xl border border-slate-200 bg-white p-2 shadow-lg">
-                    <button
-                    routerLink="/change" routerLinkActive="bg-slate-100"
+            @if (isDropMenuOpen) {
+            <div class="absolute right-0 z-50 mt-2 w-52 rounded-xl border border-slate-200 bg-white p-2 shadow-lg">
+                <button routerLink="/change" routerLinkActive="bg-slate-100"
                     class="flex cursor-pointer w-full items-center gap-2 rounded-sm px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100">
                     <i class="fa-solid fa-gear"></i>
                     Settings</button>
 
-                    <div class="my-1 border-t border-slate-200"></div>
+                <div class="my-1 border-t border-slate-200"></div>
 
-                    <button
-                    (click)="logOut()"
+                <button (click)="logOut()"
                     class="flex cursor-pointer w-full items-center gap-2 rounded-sm px-3 py-2 text-sm font-semibold text-rose-600 hover:bg-rose-50">
                     Logout</button>
-                </div>
-                }
             </div>
+            }
         </div>
-    </header>
+    </div>
+</header>
