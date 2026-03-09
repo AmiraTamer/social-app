@@ -1,0 +1,132 @@
+<div class="mx-4 border-t border-slate-200"></div>
+<section class="border-b border-slate-200 rounded-[16px] p-4 bg-white" aria-label="Comments">
+    <div class="flex items-center gap-2 mb-2">
+        <h3 class="font-bold text-[15px] text-slate-900">Comments</h3>
+        <span class="bg-blue-100 text-blue-600 text-[12px] font-bold px-2 py-0.5 rounded-full">{{commentsList.length}} </span>
+    </div>
+
+    <!-- comment details  -->
+    @for (comment of commentsList; track comment._id) {
+        <div class="flex gap-2 mb-4 group">
+        <img [src]="comment.commentCreator.photo" [alt]="comment.commentCreator.name"
+            class="w-8 h-8 rounded-full object-cover shrink-0 mt-1 bg-slate-100 border border-slate-50" />
+
+        <div class="flex-1 flex flex-col items-start min-w-0">
+            <div class="bg-slate-100 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-full">
+                <div class="flex items-center gap-1.5 mb-0.5">
+                    <span class="text-[13px] font-bold text-slate-900 hover:underline cursor-pointer">{{comment.commentCreator.name}} </span>
+                </div>
+
+                <div class="flex items-center gap-1 text-[12px] text-slate-500 mb-1">
+                    <span>@{{comment.commentCreator.username}}</span>
+                    <span>&middot;</span>
+                    <span>{{comment.createdAt}} </span>
+                </div>
+
+                @if (comment.content) {
+                    <p class="text-[14px] text-slate-800 wrap-break-word">
+                    {{comment.content}}     
+                </p>
+                }
+
+                @if (comment.image) {
+                    <img [src]="comment.image" alt="" class="w-full h-37.5 object-cover ">
+                }
+            </div>
+
+            <div class="flex items-center gap-3 mt-1 ml-2 text-[12px] text-slate-500 font-semibold">
+                <span class="cursor-pointer hover:underline">{{comment.createdAt}}</span>
+                <button class="cursor-pointer hover:underline">Like ({{comment.likes.length}})</button>
+                <button class="cursor-pointer hover:underline">Reply</button>
+            
+                @if (comment.commentCreator._id === userId ) {
+                    <!-- comment operations -->
+               <div class="relative">
+                <button
+                (click)="showDropMenu( comment._id)"
+                    class="w-6 h-6 flex items-center justify-center rounded-full hover:bg-slate-100 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <i class="fa-solid fa-ellipsis"></i>       
+                </button>
+
+                @if (openedCommentId === comment._id) {
+                    <div 
+                class="absolute right-0 z-50 mt-2 w-52 rounded-xl border border-slate-200 bg-white p-2 shadow-lg">
+                    <button
+                    (click)="editCommentItem(postId ,comment._id)"
+                    routerLink="/change" routerLinkActive="bg-slate-100"
+                    class="inline-flex items-center w-full p-2 gap-x-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer">
+                        <i class="fa-solid fa-pencil"></i>
+                        Edit 
+                </button>
+
+                    <div class="my-1 border-t border-slate-200"></div>
+
+                    <button
+                    (click)="deleteCommentItem(postId ,comment._id)"
+                    class="inline-flex text-red-700 items-center w-full p-2 gap-x-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer">
+                        <i class="fa-regular fa-trash-can"></i>
+                        Delete  
+                </button>
+                </div>
+                }
+            </div>
+
+                }
+                
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    }
+    <!-- Create Comments  -->
+    <form
+    (submit)="submitComment($event)"
+    class="flex gap-2 mt-4">
+        <img src="images\default-profile.png" alt="Amira"
+            class="w-8 h-8 rounded-full object-cover shrink-0 mt-1 bg-slate-100 border border-slate-50" />
+
+        <div
+            class="flex-1 bg-slate-100 border border-transparent focus-within:border-blue-300 focus-within:ring-4 focus-within:ring-blue-50 focus-within:bg-white transition-all rounded-[20px] p-2 flex flex-col">
+            <textarea
+            [formControl]="commentContent"
+                class="w-full bg-transparent border-none text-[14px] text-slate-800 placeholder-slate-500 resize-none outline-none px-2 pt-1 pb-3 min-h-15 focus:outline-0"
+                placeholder="Comment as ..."></textarea>
+
+            <div class="flex items-center justify-between px-1">
+                <div class="flex items-center gap-1">
+                    <input
+                    (change)="changeCommentImg($event)"
+                    type="file" id="file" class="hidden" />
+                    <label for="file"
+                        class="flex cursor-pointer items-center gap-2 text-slate-600 hover:bg-slate-50 px-2 py-1.5 rounded-lg transition-colors group">
+                        <i
+                            class="fa-regular fa-image text-[#22c55e] text-[1.1rem] group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[14px] font-semibold text-slate-600">Photo/video</span>
+                    </label>
+                </div>
+
+                <button 
+                    class="w-8 cursor-pointer h-8 rounded-full bg-blue-400 hover:bg-blue-500 text-white flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-paper-plane text-[13px] ms-1 mt-.5"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="savedImgContainer relative overflow-hidden  max-h-96 my-2">
+            <img [src]="imgCommentUrl" alt="" class="w-full max-h-56 object-cover rounded-lg">
+            <button 
+            (click)="hideImg()" 
+            type="button"
+                class="absolute top-4 right-6 bg-gray-500/70 rounded-full w-7 h-7 cursor-pointer hover:bg-gray-300/50">
+                <i class="fa-solid fa-x text-xs"></i>
+            </button>
+        </div>
+
+
+</section>

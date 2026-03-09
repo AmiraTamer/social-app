@@ -1,0 +1,32 @@
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from '../../../../environments/environment';
+import { Router } from '@angular/router';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthService {
+  // hkteb el logic elli haykalem el API //
+
+  // 1- injection ll httpClient
+  private readonly httpClient = inject(HttpClient);
+  //logout => m4 tb3 al api
+  private readonly router = inject(Router)
+
+  // 2- create el function
+  signUp(data:object): Observable<any>{
+    return this.httpClient.post(environment.baseUrl + '/users/signup' , data );
+  }
+
+  signIn(data:object): Observable<any>{
+    return this.httpClient.post(environment.baseUrl + '/users/signin' , data );
+  }
+
+  signOut(){
+    localStorage.removeItem('socialToken');
+    localStorage.removeItem('socialUser');
+    this.router.navigate(['/login']);
+  }
+}

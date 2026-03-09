@@ -1,0 +1,265 @@
+<!-- middle side -->
+<section class="space-y-4">
+    <div class="rounded-2xl border border-slate-200 bg-white p-2 shadow-sm xl:hidden">
+        <div class="grid grid-cols-2 gap-2">
+            <button
+                class="flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-bold transition bg-babyBlue text-softBlue">
+                <i class="fa-regular fa-newspaper"></i>
+                Feed
+            </button>
+
+            <button
+                class="flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-bold transition bg-slate-50 text-slate-700 hover:bg-slate-100">
+                <i class="fa-solid fa-wand-sparkles"></i>
+                My Posts
+            </button>
+
+            <button
+                class="flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-bold transition bg-slate-50 text-slate-700 hover:bg-slate-100">
+                <i class="fa-solid fa-earth"></i>
+                Community
+            </button>
+
+            <button
+                class="flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-bold transition bg-slate-50 text-slate-700 hover:bg-slate-100">
+                <i class="fa-regular fa-bookmark"></i>
+                Saved
+            </button>
+        </div>
+    </div>
+
+    <div class="space-y-3 xl:hidden">
+        <button type="button"
+            class="inline-flex w-full items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left shadow-sm cursor-pointer">
+            <span class="inline-flex items-center gap-2 text-sm font-extrabold text-slate-900">
+                <i class="fa-solid fa-users text-softBlue"></i>
+                Suggested Friends
+            </span>
+
+            <span class="inline-flex items-center gap-2">
+                <span class="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-bold text-slate-600">5</span>
+                <span class="text-xs font-bold text-softBlue">Show</span>
+            </span>
+        </button>
+
+    </div>
+
+    <!-- create post -->
+    <form (submit)="submitForm($event)" class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <div class="mb-3 flex items-start gap-3">
+            <img alt="Tatiana Horne" class="h-11 w-11 rounded-full object-cover" src="images\default-profile.png">
+
+            <div class="flex-1">
+                <p class="text-base font-bold text-slate-900">Tatiana Horne</p>
+                <div
+                    class="mt-1 inline-flex items-center gap-2 rounded-full bg-slate-100 px-2 py-0 text-xs font-semibold text-slate-700">
+                    <i class="fa-solid fa-earth"></i>
+
+                    <select [formControl]="privacy"
+                        class="bg-transparent text-gray-600 border-0 py-1 pr-6 pl-1 text-[11px]">
+                        <option value="public">Public</option>
+                        <option value="following">Followers</option>
+                        <option value="only_me">Only me</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative">
+            <textarea [formControl]="content" rows="4" placeholder="What's on your mind, Tatiana?"
+                class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-[1.0625rem] leading-relaxed text-slate-800 outline-none transition focus:border-softBlue focus:border-[0.8px] focus:bg-white"></textarea>
+        </div>
+
+        <div class="savedImgContainer relative overflow-hidden  max-h-96 my-2">
+            <img [src]="imgUrl" alt="" class="w-full max-h-80 object-cover rounded-lg">
+            <button (click)="hideImg()" type="button"
+                class="absolute top-4 right-6 bg-gray-500/70 rounded-full w-7 h-7 cursor-pointer hover:bg-gray-300/50">
+                <i class="fa-solid fa-x text-xs"></i>
+            </button>
+        </div>
+
+        <div class="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-border pt-3">
+            <div class="relative flex items-center gap-2">
+                <label
+                    class="flex cursor-pointer items-center gap-2 rounded-sm px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100">
+                    <i class="fa-regular fa-image text-sm text-emerald-600"></i>
+                    <span class="hidden sm:inline">Photo/video</span>
+                    <input (change)="changeImg($event)" accept="image/*" class="hidden" type="file">
+                </label>
+                <button type="button"
+                    class="flex items-center gap-2 rounded-sm cursor-pointer px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100">
+                    <i class="fa-regular fa-smile text-sm text-orange-400"></i>
+                    <span class="hidden sm:inline">Feeling/activity</span>
+                </button>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button
+                    class="btn flex items-center gap-2 rounded-sm cursor-pointer bg-softBlue px-5 py-2 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-[#166fe5] disabled:opacity-60 focus:border-2 ">
+                    Post
+                    <i class="fa-regular fa-paper-plane text-white"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+
+
+    <div class="space-y-4">
+        <!-- Post -->
+        @for (post of postsList; track post.id) {
+        <article class="overflow-visible rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="p-4">
+                <div class="flex items-center gap-3">
+                    <a class="shrink-0" href="#/profile" data-discover="true">
+                        <img [alt]="post.user.name" class="h-11 w-11 rounded-full object-cover"
+                            [src]="post.user.photo"></a>
+                    <div class="min-w-0 flex-1">
+                        <a class="truncate text-sm font-bold text-foreground hover:underline" href="#/profile"
+                            data-discover="true"> {{post.user.name}} </a>
+
+                        <div class="flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
+                            @{{post.user.username}}
+                            <button type="button"
+                                class="rounded px-0.5 py-0.5 text-xs font-semibold text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 hover:underline">
+                                {{post.createdAt}}
+                            </button>
+                            <span class="mx-1">·</span>
+                            <div
+                                class="p-0 w-fit items-center bg-neutral-secondary-strong text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
+                                <select [disabled]="post.user._id !== userId "
+                                    class="border-none bg-transparent cursor-pointer ring-0 py-0 px-2 text-xs">
+                                    <option [selected]="post.privacy === 'public'" value="public"><i
+                                            class="fa-solid fa-earth "></i> public</option>
+                                    <option [selected]="post.privacy === 'following'" value="following">followers
+                                    </option>
+                                    <option [selected]="post.privacy === 'only_me'" value="only_me">only me</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- post operations -->
+                    <div class="relative group">
+                        <button id="dropdownMenuIconButton" data-dropdown-toggle="dropdownDots"
+                            class="text-heading bg-neutral-primary box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base text-sm p-2 focus:outline-none"
+                            type="button">
+                            <i class="fa-solid fa-ellipsis text-gray-600"></i>
+                        </button>
+
+                        <!-- Dropdown menu -->
+                        <div id="dropdownDots"
+                            class="z-30 hidden group-hover:block absolute bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-44">
+                            <ul class="p-2 text-sm text-body font-medium" aria-labelledby="dropdownMenuIconButton">
+                                <li>
+                                    <button
+                                        class="inline-flex items-center w-full p-2 gap-x-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                        Save Post
+                                    </button>
+                                    @if (post.user._id === userId ) {
+
+                                    <button
+                                        class="inline-flex items-center w-full p-2 gap-x-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer">
+                                        <i class="fa-solid fa-pencil"></i>
+                                        Edit post
+                                    </button>
+                                    <button (click)="deletePostItem(post._id)"
+                                        class="inline-flex text-red-700 items-center w-full p-2 gap-x-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                        Delete post
+                                    </button>
+
+                                    }
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+                @if (post.body) {
+                <div class="mt-3">
+                    <p class="whitespace-pre-wrap break-all text-sm leading-relaxed text-foreground">{{post.body}}</p>
+                </div>
+                }
+            </div>
+
+            @if (post.image) {
+            <div class="max-h-155 overflow-hidden border-y border-slate-200">
+                <button type="button" class="group relative block w-full cursor-zoom-in">
+                    <img alt="post" class="w-full object-cover" [src]="post.image">
+                    <span
+                        class="pointer-events-none absolute inset-0 bg-black/0 transition group-hover:bg-black/10"></span>
+                </button>
+            </div>
+            }
+
+
+
+            <div class="px-4 pb-2 pt-3 text-sm text-slate-500">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div class="flex items-center gap-2">
+                        <span class="flex h-5 w-5 items-center justify-center rounded-full bg-softBlue text-white">
+                            <i class="fa-regular fa-thumbs-up  text-xs"></i>
+                        </span>
+                        <button type="button" class="font-semibold transition cursor-default">
+                            {{post.likesCount}} likes
+                        </button>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2 text-xs sm:gap-3 sm:text-sm">
+                        <span class="inline-flex items-center gap-1">
+                            <i class="fa-solid fa-repeat text-xs"></i>
+                            {{post.sharesCount}} shares
+                        </span>
+                        <span> {{post.commentsCount}} comments</span>
+                        <button
+                        [routerLink]="['/details' , post._id]"
+                            class="rounded-md px-2 py-1 text-xs font-bold text-softBlue hover:bg-babyBlue cursor-pointer">
+                            View details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mx-4 border-t border-slate-200"></div>
+            <div class="grid grid-cols-3 gap-1 p-1">
+
+                <button
+                    class="cursor-pointer flex items-center justify-center gap-1.5 rounded-md p-2 text-xs font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 sm:gap-2 sm:text-sm text-slate-600 hover:bg-slate-100">
+                    <i class="fa-regular fa-thumbs-up  text-xl"></i>
+                    <span>Like</span>
+                </button>
+
+                <button
+                #el
+                    class="cursor-pointer flex items-center justify-center gap-1.5 rounded-md p-2 text-xs font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 sm:gap-2 sm:text-sm text-slate-600 hover:bg-slate-100">
+                    <i class="fa-regular fa-comment"></i>
+                    <span>Comment</span>
+                </button>
+
+                <button
+                    class="cursor-pointer flex items-center justify-center gap-1.5 rounded-md p-2 text-xs font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 sm:gap-2 sm:text-sm text-slate-600 hover:bg-slate-100">
+                    <i class="fa-solid fa-share"></i>
+                    <span>Share</span>
+                </button>
+            </div>
+
+            @defer (on interaction(el)) {
+                <app-comment-post [postId]="post._id"></app-comment-post>
+            }
+
+        </article>
+
+        }
+
+        <div class="flex min-h-10 items-center justify-center">
+            <span class="text-xs font-semibold text-slate-400">You reached the end</span>
+        </div>
+
+    </div>
+</section>
