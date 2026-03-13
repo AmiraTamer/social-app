@@ -12,6 +12,9 @@ import { NotificationComponent } from './features/notification/notification.comp
 import { authGuard } from './core/auth/guards/auth-guard';
 import { guestGuard } from './core/auth/guards/guest-guard';
 import { DetailsComponent } from './features/details/details.component';
+// import { MyPostsComponent } from './features/profile/my-posts/my-posts.component';
+import { SavedComponent } from './features/profile/saved/saved.component';
+import { MyOwnPostsComponent } from './features/profile/my-own-posts/my-own-posts.component';
 
 export const routes: Routes = [
 
@@ -31,9 +34,18 @@ export const routes: Routes = [
         children:[
             {path:'feed', component:FeedComponent, title:'Feed Page'},
             {path:'notifications', component:NotificationComponent, title:'Notifications Page'},
-            {path:'profile', component:ProfileComponent, title:'Profile Page'},
+            {path:'profile', component:ProfileComponent, title:'Profile Page' , 
+                children : [
+                {path:'' , redirectTo:'myPosts', pathMatch:'full'},
+                { path:'myPosts', component:MyOwnPostsComponent , children:[
+                    {path:'details/:id', component:DetailsComponent, title:'Post Details Page'},
+                ]},
+                { path:'saved', component:SavedComponent},
+                ]
+            },
             {path:'change', component:ChangePasswordComponent, title:'Change Password Page'},
             {path:'details/:id', component:DetailsComponent, title:'Post Details Page'},
+            
 
         ] ,
     },

@@ -1,0 +1,73 @@
+{
+  "login": {
+    "loginTitle": "Log in to Route Posts",
+    "loginSubtitle": "Log in and continue your social journey.",
+    "emailOrUsername": "Email or Username",
+    "password": "Password",
+    "loginButton": "Log In",
+    "forgotPassword": "Forgot password?"
+  },
+  "validation": {
+    "loginRequired": "Email or username is required.",
+    "loginInvalid": "Please enter a valid Email Or Username.",
+    "passwordRequired": "Password is required.",
+    "passwordPattern": "Must contain at least 8 chars, 1 uppercase, 1 lowercase, 1 number, and 1 special"
+  },
+  "messages": {
+    "error": "Something went wrong"
+  },
+
+  "register": {
+    "title": "Create a new account",
+    "subtitle": "It is quick and easy.",
+    "fullName": "Full Name",
+    "username": "Username (optional)",
+    "email": "Email address",
+    "genderSelect": "Select gender",
+    "female": "Female",
+    "male": "Male",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "createAccount": "Create New Account"
+  },
+
+  "validation": {
+    "nameRequired": "Full Name is required.",
+    "nameMin": "Name must be at least 3 characters",
+
+    "emailRequired": "Email is required.",
+    "emailInvalid": "Please enter a valid email address.",
+
+    "genderRequired": "Select gender is required.",
+
+    "dobRequired": "Date of birth is required.",
+    "dobFuture": "Date of birth cannot be in the future.",
+
+    "passwordRequired": "Password is required.",
+    "passwordPattern": "Must contain at least 8 chars, 1 uppercase, 1 lowercase, 1 number, and 1 special",
+
+    "confirmPasswordRequired": "Confirm password is required.",
+    "passwordMismatch": "Passwords do not match."
+  },
+
+  "AUTH": {
+    "LOGIN": "Login",
+    "REGISTER": "Register"
+  },
+  "HOME": {
+    "TITLE": "Route Posts",
+    "SUBTITLE": "Connect with friends and the world around you on Route Posts."
+  },
+  "ABOUT": {
+    "SMALL_TITLE": "ABOUT ROUTE ACADEMY",
+    "TITLE": "Egypt's Leading IT Training Center Since 2012",
+    "DESCRIPTION": "Route Academy is the premier IT training center in Egypt, established in 2012. We specialize in delivering high-quality training courses in programming, web development, and application development. We've identified the unique challenges people may face when learning new technology and made efforts to provide strategies to overcome them."
+  },
+  "STATS": {
+    "FOUNDED": "Founded",
+    "GRADUATES": "Graduates",
+    "PARTNER_COMPANIES": "Partner Companies",
+    "BRANCHES": "Branches",
+    "DIPLOMAS": "Diplomas Available"
+  }
+}

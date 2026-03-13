@@ -7,7 +7,7 @@
                             <i class="fa-solid fa-users text-softBlue"></i>
                             <h3 class="text-base font-extrabold text-slate-900">Suggested Friends</h3>
                         </div>
-                        <span class="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-bold text-slate-600">5</span>
+                        <span class="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-bold text-slate-600">{{sugFriendsArr.length}}</span>
                     </div>
 
                     <div class="mb-3">
@@ -19,16 +19,18 @@
                         </label>
                     </div>
 
-                    <div class="space-y-3">
+                      <div class="space-y-3">
+                    @for (friend of sugFriendsArr; track $index) {
+                      
                         <div class="rounded-xl border border-slate-200 p-2.5">
                             <div class="flex items-center justify-between gap-2">
                                 <button type="button"
                                     class="flex min-w-0 items-center gap-2 rounded-lg px-1 py-1 text-left transition hover:bg-slate-50">
-                                    <img alt="Ahmed Bahnasy" class="h-10 w-10 rounded-full object-cover"
-                                        src="images\route.png">
+                                    <img [alt]="" class="h-10 w-10 rounded-full object-cover"
+                                        [src]="friend.photo">
                                     <div class="min-w-0">
-                                        <p class="truncate text-sm font-bold text-slate-900 hover:underline">Amira Tamer</p>
-                                        <p class="truncate text-xs text-slate-500">@Amira20222</p>
+                                        <p class="truncate text-sm font-bold text-slate-900 hover:underline">{{friend.name}}</p>
+                                        <p class="truncate text-xs text-slate-500">@{{friend.username}}</p>
                                     </div>
                                 </button>
                                 <button
@@ -39,30 +41,16 @@
                             </div>
 
                             <div class="mt-2 flex items-center gap-2 text-[11px] font-semibold text-slate-500">
-                                <span class="rounded-full bg-slate-100 px-2 py-0.5">266 followers</span>
+                                <span class="rounded-full bg-slate-100 px-2 py-0.5">{{friend.followersCount}} followers</span>
+                                @if (friend.mutualFollowersCount > 0) {
+                                    <span class="rounded-full bg-[#edf4ff] px-2 py-0.5 text-softBlue"> {{friend.mutualFollowersCount}} mutual</span>
+                                }
                             </div>
 
+                            
+
                         </div>
-                        
-                        <div class="rounded-xl border border-slate-200 p-2.5">
-                            <div class="flex items-center justify-between gap-2">
-                                <button type="button"
-                                    class="flex min-w-0 items-center gap-2 rounded-lg px-1 py-1 text-left transition hover:bg-slate-50">
-                                    <img alt="Ahmed Bahnasy" class="h-10 w-10 rounded-full object-cover"
-                                        src="images\route.png">
-                                    <div class="min-w-0">
-                                        <p class="truncate text-sm font-bold text-slate-900 hover:underline">Ahmed
-                                            Bahnasy</p>
-                                        <p class="truncate text-xs text-slate-500">@bahnasy20222w2</p>
-                                    </div>
-                                </button><button
-                                    class="inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-bold transition disabled:opacity-60 bg-babyBlue text-softBlue hover:bg-[#d8ebff] cursor-pointer">
-                                    <i class="fa-solid fa-user-plus"></i>
-                                    Follow</button></div>
-                            <div class="mt-2 flex items-center gap-2 text-[11px] font-semibold text-slate-500"><span
-                                    class="rounded-full bg-slate-100 px-2 py-0.5">144 followers</span></div>
-                        </div>
-                        
+                    }
                     </div>
                     <button
                         class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-700 transition hover:bg-slate-100 cursor-pointer">

@@ -43,3 +43,7 @@ body {
     background-color: var(--color-secondColor);
     
 }
+
+button{
+  cursor: pointer;
+}

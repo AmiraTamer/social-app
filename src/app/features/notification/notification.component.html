@@ -8,158 +8,108 @@
                         <p class="mt-1 text-sm text-slate-500">Realtime updates for likes, comments, shares, and
                             follows.</p>
                     </div><button
-                        class="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-check-check" aria-hidden="true">
-                            <path d="M18 6 7 17l-5-5"></path>
-                            <path d="m22 10-7.5 7.5L13 16"></path>
-                        </svg>Mark all as read</button>
+                        class="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto">
+                        <i class="fa-solid fa-check-circle"></i>
+                        Mark all as read</button>
                 </div>
                 <div class="mt-4 grid grid-cols-2 gap-2 sm:flex sm:items-center"><button type="button"
-                        class="rounded-full px-4 py-1.5 text-sm font-bold transition bg-[#1877f2] text-white">All</button><button
+                        class="rounded-full px-4 py-1.5 text-sm font-bold transition bg-softBlue text-white">All</button><button
                         type="button"
                         class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200">Unread<span
-                            class="rounded-full px-2 py-0.5 text-xs bg-white text-[#1877f2]">3</span></button></div>
+                            class="rounded-full px-2 py-0.5 text-xs bg-white text-softBlue">3</span></button></div>
             </div>
             <div class="space-y-2 p-3 sm:p-4">
                 <article
                     class="group relative flex gap-3 rounded-xl border p-3 transition sm:rounded-2xl sm:p-4 border-slate-200 bg-white hover:bg-slate-50">
-                    <div class="relative shrink-0"><button type="button" class="block cursor-pointer"><img alt="Rahma"
+                    <div class="relative shrink-0"><button type="button" class="block cursor-pointer">
+                        <img alt="Rahma"
                                 class="h-11 w-11 rounded-full object-cover"
-                                src="https://pub-3cba56bacf9f4965bbb0989e07dada12.r2.dev/linkedPosts/default-profile.png"></button><span
-                            class="absolute -bottom-1 -right-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white ring-2 ring-white text-[#1877f2]"><svg
-                                xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true">
-                                <path
-                                    d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719">
-                                </path>
-                            </svg></span></div>
+                                src="https://pub-3cba56bacf9f4965bbb0989e07dada12.r2.dev/linkedPosts/default-profile.png">
+                            </button>
+                            <span
+                            class="absolute -bottom-1 -right-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white ring-2 ring-white text-softBlue">
+                            <i class="fa-regular fa-comment"></i>
+                        </span>
+                    </div>
                     <div class="min-w-0 flex-1">
                         <div class="flex flex-wrap items-start justify-between gap-1.5 sm:gap-2">
                             <p class="text-sm leading-6 text-slate-800"><button type="button"
-                                    class="font-extrabold hover:text-[#1877f2] hover:underline">Rahma</button> commented
+                                    class="font-extrabold hover:text-softBlue hover:underline">Rahma</button> commented
                                 on your post</p>
                             <div class="flex items-center gap-1.5 sm:gap-2"><span
                                     class="text-xs font-semibold text-slate-500">9h</span></div>
                         </div>
                         <p class="mt-0.5 text-sm text-slate-600">updated profile picture.</p>
                         <div class="mt-2 flex items-center gap-2"><span
-                                class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-                                    <path d="M20 6 9 17l-5-5"></path>
-                                </svg>Read</span></div>
+                                class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600">
+                                <i class="fa-solid fa-check"></i>
+                                Read</span></div>
                     </div>
                 </article>
                 <article
                     class="group relative flex gap-3 rounded-xl border p-3 transition sm:rounded-2xl sm:p-4 border-[#dbeafe] bg-[#edf4ff]">
-                    <div class="relative shrink-0"><button type="button" class="block cursor-pointer"><img alt="Rahma"
+                    <div class="relative shrink-0">
+                        <button type="button" class="block cursor-pointer">
+                            <img alt="Rahma"
                                 class="h-11 w-11 rounded-full object-cover"
-                                src="https://pub-3cba56bacf9f4965bbb0989e07dada12.r2.dev/linkedPosts/default-profile.png"></button><span
-                            class="absolute -bottom-1 -right-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white ring-2 ring-white text-[#1877f2]"><svg
-                                xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true">
-                                <path
-                                    d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719">
-                                </path>
-                            </svg></span></div>
+                                src="https://pub-3cba56bacf9f4965bbb0989e07dada12.r2.dev/linkedPosts/default-profile.png">
+                        </button>
+                            <span
+                            class="absolute -bottom-1 -right-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white ring-2 ring-white text-softBlue">
+                            <i class="fa-regular fa-comment"></i>
+                        </span></div>
                     <div class="min-w-0 flex-1">
                         <div class="flex flex-wrap items-start justify-between gap-1.5 sm:gap-2">
                             <p class="text-sm leading-6 text-slate-800"><button type="button"
-                                    class="font-extrabold hover:text-[#1877f2] hover:underline">Rahma</button> commented
+                                    class="font-extrabold hover:text-softBlue hover:underline">Rahma</button> commented
                                 on your post</p>
                             <div class="flex items-center gap-1.5 sm:gap-2"><span
                                     class="text-xs font-semibold text-slate-500">9h</span><svg
                                     xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-dot text-[#1877f2]" aria-hidden="true">
+                                    stroke-linejoin="round" class="lucide lucide-dot text-softBlue" aria-hidden="true">
                                     <circle cx="12.1" cy="12.1" r="1"></circle>
                                 </svg></div>
                         </div>
                         <p class="mt-0.5 text-sm text-slate-600">updated profile picture.</p>
                         <div class="mt-2 flex items-center gap-2"><button
-                                class="inline-flex items-center gap-1.5 rounded-md bg-white px-2.5 py-1 text-xs font-bold text-[#1877f2] ring-1 ring-[#dbeafe] transition hover:bg-[#e7f3ff]"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-                                    <path d="M20 6 9 17l-5-5"></path>
-                                </svg>Mark as read</button></div>
+                                class="inline-flex items-center gap-1.5 rounded-md bg-white px-2.5 py-1 text-xs font-bold text-softBlue ring-1 ring-[#dbeafe] transition hover:bg-babyBlue">
+                                <i class="fa-solid fa-check"></i>
+                                Mark as read</button></div>
                     </div>
                 </article>
+                
                 <article
                     class="group relative flex gap-3 rounded-xl border p-3 transition sm:rounded-2xl sm:p-4 border-[#dbeafe] bg-[#edf4ff]">
-                    <div class="relative shrink-0"><button type="button" class="block cursor-pointer"><img alt="Rahma"
+                    <div class="relative shrink-0">
+                        <button type="button" class="block cursor-pointer">
+                            <img alt="aisha"
                                 class="h-11 w-11 rounded-full object-cover"
-                                src="https://pub-3cba56bacf9f4965bbb0989e07dada12.r2.dev/linkedPosts/default-profile.png"></button><span
-                            class="absolute -bottom-1 -right-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white ring-2 ring-white text-[#1877f2]"><svg
-                                xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true">
-                                <path
-                                    d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719">
-                                </path>
-                            </svg></span></div>
+                                src="https://pub-3cba56bacf9f4965bbb0989e07dada12.r2.dev/linkedPosts/1772863318875-734346b6-1464-4650-b986-8ac2d98902fc-WhatsApp-Image-2025-06-30-at-14.13.36.webp">
+                            </button>
+                            <span
+                            class="absolute -bottom-1 -right-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white ring-2 ring-white text-rose-500">
+                             <i class="fa-regular fa-heart"></i>
+                        </span>
+                    </div>
                     <div class="min-w-0 flex-1">
                         <div class="flex flex-wrap items-start justify-between gap-1.5 sm:gap-2">
                             <p class="text-sm leading-6 text-slate-800"><button type="button"
-                                    class="font-extrabold hover:text-[#1877f2] hover:underline">Rahma</button> commented
-                                on your post</p>
-                            <div class="flex items-center gap-1.5 sm:gap-2"><span
-                                    class="text-xs font-semibold text-slate-500">9h</span><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-dot text-[#1877f2]" aria-hidden="true">
-                                    <circle cx="12.1" cy="12.1" r="1"></circle>
-                                </svg></div>
-                        </div>
-                        <p class="mt-0.5 text-sm text-slate-600">updated profile picture.</p>
-                        <div class="mt-2 flex items-center gap-2"><button
-                                class="inline-flex items-center gap-1.5 rounded-md bg-white px-2.5 py-1 text-xs font-bold text-[#1877f2] ring-1 ring-[#dbeafe] transition hover:bg-[#e7f3ff]"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-                                    <path d="M20 6 9 17l-5-5"></path>
-                                </svg>Mark as read</button></div>
-                    </div>
-                </article>
-                <article
-                    class="group relative flex gap-3 rounded-xl border p-3 transition sm:rounded-2xl sm:p-4 border-[#dbeafe] bg-[#edf4ff]">
-                    <div class="relative shrink-0"><button type="button" class="block cursor-pointer"><img alt="aisha"
-                                class="h-11 w-11 rounded-full object-cover"
-                                src="https://pub-3cba56bacf9f4965bbb0989e07dada12.r2.dev/linkedPosts/1772863318875-734346b6-1464-4650-b986-8ac2d98902fc-WhatsApp-Image-2025-06-30-at-14.13.36.webp"></button><span
-                            class="absolute -bottom-1 -right-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white ring-2 ring-white text-rose-500"><svg
-                                xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-heart" aria-hidden="true">
-                                <path
-                                    d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5">
-                                </path>
-                            </svg></span></div>
-                    <div class="min-w-0 flex-1">
-                        <div class="flex flex-wrap items-start justify-between gap-1.5 sm:gap-2">
-                            <p class="text-sm leading-6 text-slate-800"><button type="button"
-                                    class="font-extrabold hover:text-[#1877f2] hover:underline">aisha</button> liked
+                                    class="font-extrabold hover:text-softBlue hover:underline">aisha</button> liked
                                 your post</p>
                             <div class="flex items-center gap-1.5 sm:gap-2"><span
                                     class="text-xs font-semibold text-slate-500">2d</span><svg
                                     xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-dot text-[#1877f2]" aria-hidden="true">
+                                    stroke-linejoin="round" class="lucide lucide-dot text-softBlue" aria-hidden="true">
                                     <circle cx="12.1" cy="12.1" r="1"></circle>
                                 </svg></div>
                         </div>
                         <p class="mt-0.5 text-sm text-slate-600">post content</p>
                         <div class="mt-2 flex items-center gap-2"><button
-                                class="inline-flex items-center gap-1.5 rounded-md bg-white px-2.5 py-1 text-xs font-bold text-[#1877f2] ring-1 ring-[#dbeafe] transition hover:bg-[#e7f3ff]"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-                                    <path d="M20 6 9 17l-5-5"></path>
-                                </svg>Mark as read</button></div>
+                                class="inline-flex items-center gap-1.5 rounded-md bg-white px-2.5 py-1 text-xs font-bold text-softBlue ring-1 ring-[#dbeafe] transition hover:bg-babyBlue">
+                                <i class="fa-solid fa-check"></i>
+                                Mark as read</button></div>
                     </div>
                 </article>
             </div>
