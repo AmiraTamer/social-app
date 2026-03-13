@@ -10,6 +10,8 @@ export class PostsService {
 
   private readonly httpClient = inject(HttpClient);
 
+
+
   // header : object = {
   //     headers:{
   //       'AUTHORIZATION' : `Bearer ${localStorage.getItem('socialToken')} `
@@ -35,6 +37,10 @@ export class PostsService {
 
   updatePost(postId:string , data:FormData):Observable<any>{
     return this.httpClient.put(environment.baseUrl + `/posts/${postId}`, data );
+  }
+
+  BookmarkPost(postId:string , data:object):Observable<any>{
+    return this.httpClient.put(environment.baseUrl + `/posts/${postId}/bookmark` ,data );
   }
 
 

@@ -154,11 +154,21 @@
                             class="z-30 hidden group-hover:block absolute bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-44">
                             <ul class="p-2 text-sm text-body font-medium" aria-labelledby="dropdownMenuIconButton">
                                 <li>
-                                    <button
+                                    @if(post.bookmarked === false){
+                                        <button
+                                        (click)="savePost(post._id)"
                                         class="inline-flex items-center w-full p-2 gap-x-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer">
                                         <i class="fa-regular fa-bookmark"></i>
                                         Save Post
                                     </button>
+                                    }@else{
+                                         <button
+                                        (click)="unSavePost(post._id)"
+                                        class="inline-flex items-center w-full p-2 gap-x-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                        Save Post
+                                    </button>
+                                    }
                                     @if (post.user._id === userId ) {
 
                                     <button
@@ -166,7 +176,7 @@
                                         <i class="fa-solid fa-pencil"></i>
                                         Edit post
                                     </button>
-                                    <button (click)="deletePostItem(post._id)"
+                                    <button (click)="(post._id)"
                                         class="inline-flex text-red-700 items-center w-full p-2 gap-x-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer">
                                         <i class="fa-regular fa-trash-can"></i>
                                         Delete post

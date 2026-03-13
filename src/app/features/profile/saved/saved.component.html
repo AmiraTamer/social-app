@@ -1,7 +1,7 @@
 <div class="space-y-3">
-
-    @for (post of savedpostsList; track post._id) {
-        @if (post.bookmarked) {
+    @if (savedpostsList.length > 0) {
+             @for (post of savedpostsList; track post._id) {
+       
               <article
         class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_1px_6px_rgba(15,23,42,.05)] transition hover:shadow-sm">
         <div class="p-4">
@@ -51,8 +51,13 @@
                 Mar 13, 9:50 AM</span>
         </div>
     </article>
-        }
+        
     }
+    }@else {
+        <p class="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-500">No saved posts yet.</p>
+    }   
+   
+    
 </div>
 
 

@@ -141,6 +141,26 @@ export class MiddleSideComponent implements OnInit{
 
   }
 
+
+   savePost(postId:string):void{
+
+    this.postsService.BookmarkPost(postId,{}).subscribe({
+      next :(res)=>{
+      console.log(res);
+
+    },
+    error :(err)=>{
+      console.log(err);
+
+    }
+  });
+
+  }
+
+
+  unSavePost(postId:string):void{
+    
+  }
   
 
 }
