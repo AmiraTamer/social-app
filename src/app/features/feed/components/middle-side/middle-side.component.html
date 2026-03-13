@@ -111,11 +111,12 @@
         <article class="overflow-visible rounded-xl border border-slate-200 bg-white shadow-sm">
             <div class="p-4">
                 <div class="flex items-center gap-3">
-                    <a class="shrink-0" href="#/profile" data-discover="true">
+                    <a class="shrink-0" [routerLink]="['/profile',userId]" data-discover="true">
                         <img [alt]="post.user.name" class="h-11 w-11 rounded-full object-cover"
                             [src]="post.user.photo"></a>
                     <div class="min-w-0 flex-1">
-                        <a class="truncate text-sm font-bold text-foreground hover:underline" href="#/profile"
+                        <a class="truncate text-sm font-bold text-foreground hover:underline" 
+                        [routerLink]="['/profile',userId]"
                             data-discover="true"> {{post.user.name}} </a>
 
                         <div class="flex flex-wrap items-center gap-1 text-xs text-muted-foreground">

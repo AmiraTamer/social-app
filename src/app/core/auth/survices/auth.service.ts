@@ -47,10 +47,15 @@ export class AuthService {
     return this.httpClient.get(environment.baseUrl+`/users/${userId}/posts`);
   }
 
+   getUserProfile(userId:string): Observable<any> {
+    return this.httpClient.get(environment.baseUrl+`/users/${userId}/profile`);
+  }
+
   getBookmarks(): Observable<any> {
     return this.httpClient.get(environment.baseUrl + '/users/bookmarks');
   }
 
-  // getUserProfile(){}
+ 
+ 
 
 }

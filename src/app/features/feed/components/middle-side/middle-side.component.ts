@@ -4,6 +4,7 @@ import { PostsService } from './../../../../core/services/posts.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { CommentPostComponent } from "./comment-post/comment-post.component";
 import { RouterLink } from "@angular/router";
+import { AuthService } from '../../../../core/auth/survices/auth.service';
 
 @Component({
   selector: 'app-middle-side',
@@ -16,6 +17,7 @@ import { RouterLink } from "@angular/router";
 export class MiddleSideComponent implements OnInit{
 
   private readonly postsService = inject(PostsService);
+  private readonly authService = inject(AuthService)
   
 
   content : FormControl = new FormControl("");
@@ -158,9 +160,7 @@ export class MiddleSideComponent implements OnInit{
   }
 
 
-  unSavePost(postId:string):void{
-    
-  }
+  unSavePost(postId:string):void{}
   
 
 }

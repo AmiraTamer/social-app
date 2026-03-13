@@ -1,10 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { AuthService } from '../../../../core/auth/survices/auth.service';
 import { SugFriend } from './sug-friend.interface';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-right-side',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './right-side.component.html',
   styleUrl: './right-side.component.css',
 })

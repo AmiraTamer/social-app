@@ -14,9 +14,10 @@ export class ProfileComponent implements OnInit {
     private readonly authService = inject(AuthService);
     
     myData !:MyOwnData;
+    userData !:MyOwnData;
     myId!: string;
     myPosts: Post[] = [];
-
+    userId!: string;
 
     ngOnInit(): void {
       //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -47,6 +48,37 @@ export class ProfileComponent implements OnInit {
     next: (res) => {
       // console.log(res);
       this.myPosts = res.data.posts;
+    },
+    error: (err) => {
+      console.log(err)
+    }
+  });
+}
+
+
+
+getAnthorProfile(){
+  this.authService.getUserProfile(this.userId).subscribe({
+          next:(res)=>{
+        console.log(res);
+        this.userData = res.data.user;
+        // console.log(this.myData);
+      // this.myId = this.myData._id; 
+      this.getUserPosts(); 
+        
+      },
+      error:(err)=>{
+        console.log(err);
+      },
+      });
+}
+
+
+  getUserPosts() {
+  this.authService.getUserProfile(this.userId).subscribe({
+    next: (res) => {
+      console.log(res);
+      // this.myPosts = res.data.posts;
     },
     error: (err) => {
       console.log(err)

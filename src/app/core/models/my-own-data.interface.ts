@@ -1,5 +1,5 @@
 export interface MyOwnData {
-     _id: string;
+    _id: string;
   id: string;
   name: string;
   username: string;
